@@ -1252,11 +1252,11 @@ __newindex = hookmetamethod(game, "__newindex", function(t, k, v)
 end)
 end)
 
-dhscriptsSection:NewButton("Auto farm", "23232", function()
+dhscriptsSection:NewButton("Cop Auto farm", "Have to be a  cop", function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/CorruptOblivion/DaHood/main/dahoodarrestfarm.lua'))()
 end)
 
-dhscriptsSection:NewButton("Esp", "Esp", function()
+dhscriptsSection:NewButton("Esp script", "Esp", function()
 --[Main Variables]
 
 local plrs = game["Players"]
