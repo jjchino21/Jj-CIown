@@ -873,16 +873,16 @@ setreadonly(mt, true)
 getgenv().ValiantAimHacks.FOV = 50
 end)
 
-LockSection:NewButton("Streamable script Must join Group", "The Bodypart your cursor is closes hits", function()
-    -- 0.138
-    -- 0.11243
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/jjchino21/doesntmatter23/main/2323232"))()
-    DaHoodSettings.Prediction = 0.138
-    Aiming.TargetPart = {"Head", "LeftHand", "RightHand", "LeftLowerArm", "RightLowerArm", "LeftUpperArm", "RightUpperArm", "LeftFoot", "LeftLowerLeg", "UpperTorso", "HumanoidRootPart", "LeftUpperLeg", "RightLowerLeg", "RightFoot", "LowerTorso"}
-    Aiming.FOV = 18
-    Aiming.FOVSides = 18
-    Aiming.HitChance = 400
-    Aiming.ShowFOV = true
+LockSection:NewButton("streamable script Must Join group", "The Bodypart your cursor is closes hits", function()
+-- 0.138
+-- 0.11243
+loadstring(game:HttpGet("https://raw.githubusercontent.com/jjchino21/doesntmatter323232/main/sui"))()
+DaHoodSettings.Prediction = 0.138
+Aiming.TargetPart = {"Head", "LeftHand", "RightHand", "LeftLowerArm", "RightLowerArm", "LeftUpperArm", "RightUpperArm", "LeftFoot", "LeftLowerLeg", "UpperTorso", "HumanoidRootPart", "LeftUpperLeg", "RightLowerLeg", "RightFoot", "LowerTorso"}
+Aiming.FOV = 17
+Aiming.FOVSides = 17
+Aiming.HitChance = 400
+Aiming.ShowFOV = false
 end)
 
 LockSection:NewButton("Fov Silent Aim Must Join group", "The Bodypart your cursor is closes hits", function()
@@ -891,8 +891,8 @@ LockSection:NewButton("Fov Silent Aim Must Join group", "The Bodypart your curso
 loadstring(game:HttpGet("https://raw.githubusercontent.com/jjchino21/doesntmatter323232/main/sui"))()
 DaHoodSettings.Prediction = 0.138
 Aiming.TargetPart = {"Head", "LeftHand", "RightHand", "LeftLowerArm", "RightLowerArm", "LeftUpperArm", "RightUpperArm", "LeftFoot", "LeftLowerLeg", "UpperTorso", "HumanoidRootPart", "LeftUpperLeg", "RightLowerLeg", "RightFoot", "LowerTorso"}
-Aiming.FOV = 20
-Aiming.FOVSides = 20
+Aiming.FOV = 25
+Aiming.FOVSides = 25
 Aiming.HitChance = 400
 Aiming.ShowFOV = true
 end)
