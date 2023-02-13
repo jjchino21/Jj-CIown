@@ -882,7 +882,7 @@ LockSection:NewButton("Streamable script Must join Group", "The Bodypart your cu
     Aiming.FOV = 18
     Aiming.FOVSides = 18
     Aiming.HitChance = 400
-    Aiming.ShowFOV = false
+    Aiming.ShowFOV = true
 end)
 
 LockSection:NewButton("Fov Silent Aim Must Join group", "The Bodypart your cursor is closes hits", function()
