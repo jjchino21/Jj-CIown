@@ -873,7 +873,7 @@ setreadonly(mt, true)
 getgenv().ValiantAimHacks.FOV = 50
 end)
 
-LockSection:NewButton("streamable script Must Join group", "The Bodypart your cursor is closes hits", function()
+LockSection:NewButton("Blatant Streamable script Must Join group", "The Bodypart your cursor is closes hits", function()
 -- 0.138
 -- 0.11243
 loadstring(game:HttpGet("https://raw.githubusercontent.com/jjchino21/doesntmatter323232/main/sui"))()
@@ -881,6 +881,19 @@ DaHoodSettings.Prediction = 0.138
 Aiming.TargetPart = {"Head", "LeftHand", "RightHand", "LeftLowerArm", "RightLowerArm", "LeftUpperArm", "RightUpperArm", "LeftFoot", "LeftLowerLeg", "UpperTorso", "HumanoidRootPart", "LeftUpperLeg", "RightLowerLeg", "RightFoot", "LowerTorso"}
 Aiming.FOV = 17
 Aiming.FOVSides = 17
+Aiming.HitChance = 400
+Aiming.ShowFOV = false
+end)
+
+
+LockSection:NewButton("Streamable script Must Join group", "The Bodypart your cursor is closes hits", function()
+-- 0.138
+-- 0.11243
+loadstring(game:HttpGet("https://raw.githubusercontent.com/jjchino21/doesntmatter323232/main/sui"))()
+DaHoodSettings.Prediction = 0.138
+Aiming.TargetPart = {"Head", "LeftHand", "RightHand", "LeftLowerArm", "RightLowerArm", "LeftUpperArm", "RightUpperArm", "LeftFoot", "LeftLowerLeg", "UpperTorso", "HumanoidRootPart", "LeftUpperLeg", "RightLowerLeg", "RightFoot", "LowerTorso"}
+Aiming.FOV = 12
+Aiming.FOVSides = 12
 Aiming.HitChance = 400
 Aiming.ShowFOV = false
 end)
