@@ -103,7 +103,7 @@ end)
 
 local PlayerSection = Player:NewSection("Customize Avatar")
 
-PlayerSection:NewButton("No Headless script", "No Headless", function()
+PlayerSection:NewButton("Remove Headless script", "No Headless", function()
 	game.Players.LocalPlayer.Character.Head.Transparency = 0
 	game.Players.LocalPlayer.Character.Head.Transparency = 0
 	for i,v in pairs(game.Players.LocalPlayer.Character.Head:GetChildren()) do
@@ -113,7 +113,7 @@ PlayerSection:NewButton("No Headless script", "No Headless", function()
 	end
 end)
 
-PlayerSection:NewButton("free Headless script", "Free Headless", function()
+PlayerSection:NewButton("Put on Headless script", "Free Headless", function()
 	game.Players.LocalPlayer.Character.Head.Transparency = 1
 	game.Players.LocalPlayer.Character.Head.Transparency = 1
 	for i,v in pairs(game.Players.LocalPlayer.Character.Head:GetChildren()) do
@@ -123,7 +123,7 @@ PlayerSection:NewButton("free Headless script", "Free Headless", function()
 	end
 end)
 
-PlayerSection:NewButton("free Korblox script", "Free korblox", function()
+PlayerSection:NewButton("Free Korblox script", "Free korblox", function()
 	local ply = game.Players.LocalPlayer
 	local chr = ply.Character
 	chr.RightLowerLeg.MeshId = "902942093"
@@ -806,9 +806,98 @@ end)
      end 
  end)
  
- local LockSection = Lock:NewSection("Silent Aim section or streamable")
+ -- Silent Aim Section
+local LockSection = Lock:NewSection("Silent Aim section or streamable")
 
- LockSection:NewButton("Cool Silent Aim", "Q to toggle", function()
+LockSection:NewButton("Silent Aim", "No Toggle", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Standalones/SilentAim", true))()
+end)
+
+LockSection:NewButton("T StreamAble Big Chance To hit", "Toggle and Untoggle", function()
+    local hotkey = "t" -- toggle key
+local mouse = game.Players.LocalPlayer:GetMouse()
+
+
+
+mouse.KeyDown:Connect(function(key)
+if key == hotkey then
+if getgenv().ValiantAimHacks.SilentAimEnabled == true then
+ getgenv().ValiantAimHacks.SilentAimEnabled = false
+else
+getgenv().ValiantAimHacks.SilentAimEnabled = true
+end
+end
+end)
+
+
+-- // Services
+local Players = game:GetService("Players")
+
+-- // Vars
+local LocalPlayer = Players.LocalPlayer
+local accomidationfactor = 0.12567724521
+
+-- // Silent Aim Module
+local SilentAim = loadstring(game:HttpGet("https://pastebin.com/raw/2f0mGbMP"))()
+SilentAim.TeamCheck = false
+-- // Metatable vars
+local mt = getrawmetatable(game)
+local backupindex = mt.__index
+setreadonly(mt, false)
+
+-- // Check if player is down
+SilentAim.checkSilentAim = function()
+    local checkA = (SilentAim.SilentAimEnabled == true and SilentAim.Selected ~= LocalPlayer)
+    local playerCharacter = SilentAim.Selected.Character
+    local daHood = (playerCharacter.BodyEffects["K.O"].Value == false or playerCharacter:FindFirstChild("GRABBING_CONSTRAINT") ~= nil)
+
+    return (checkA and daHood)
+end
+
+-- // Hook
+mt.__index = newcclosure(function(t, k)
+    if (t:IsA("Mouse") and (k == "Hit")) then
+        print(t, k)
+        local CPlayer = SilentAim.Selected
+        if (SilentAim.checkSilentAim()) then
+            if (CPlayer.Character:FindFirstChild("HumanoidRootPart")) then
+                return {p=(CPlayer.Character.HumanoidRootPart.CFrame.p+(CPlayer.Character.HumanoidRootPart.Velocity*accomidationfactor))}
+            end
+        end
+    end
+    return backupindex(t, k)
+end)
+
+-- // Revert
+setreadonly(mt, true)
+getgenv().ValiantAimHacks.FOV = 50
+end)
+
+LockSection:NewButton("Streamable script Must join Group", "The Bodypart your cursor is closes hits", function()
+    -- 0.138
+    -- 0.11243
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/jjchino21/doesntmatter23/main/2323232"))()
+    DaHoodSettings.Prediction = 0.138
+    Aiming.TargetPart = {"Head", "LeftHand", "RightHand", "LeftLowerArm", "RightLowerArm", "LeftUpperArm", "RightUpperArm", "LeftFoot", "LeftLowerLeg", "UpperTorso", "HumanoidRootPart", "LeftUpperLeg", "RightLowerLeg", "RightFoot", "LowerTorso"}
+    Aiming.FOV = 12
+    Aiming.FOVSides = 12
+    Aiming.HitChance = 400
+    Aiming.ShowFOV = false
+end)
+
+LockSection:NewButton("Fov Silent Aim Must Join group", "The Bodypart your cursor is closes hits", function()
+-- 0.138
+-- 0.11243
+loadstring(game:HttpGet("https://raw.githubusercontent.com/jjchino21/doesntmatter323232/main/sui"))()
+DaHoodSettings.Prediction = 0.138
+Aiming.TargetPart = {"Head", "LeftHand", "RightHand", "LeftLowerArm", "RightLowerArm", "LeftUpperArm", "RightUpperArm", "LeftFoot", "LeftLowerLeg", "UpperTorso", "HumanoidRootPart", "LeftUpperLeg", "RightLowerLeg", "RightFoot", "LowerTorso"}
+Aiming.FOV = 20
+Aiming.FOVSides = 20
+Aiming.HitChance = 400
+Aiming.ShowFOV = true
+end)
+
+ LockSection:NewButton(" Q Cool Trace Silent", "Q to toggle", function()
      _G.TargetAim = {
          ["Key"] = "q",
          ["Mode"] = "Toggle", -- "Toggle" or "Hold"
@@ -858,67 +947,7 @@ end)
      loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Standalones/SilentAim", true))()
  end)
  
- LockSection:NewButton("T StreamAble", "Toggle and Untoggle", function()
-     local hotkey = "t" -- toggle key
- local mouse = game.Players.LocalPlayer:GetMouse()
- 
- 
- 
- mouse.KeyDown:Connect(function(key)
- if key == hotkey then
- if getgenv().ValiantAimHacks.SilentAimEnabled == true then
-  getgenv().ValiantAimHacks.SilentAimEnabled = false
- else
- getgenv().ValiantAimHacks.SilentAimEnabled = true
- end
- end
- end)
- 
- 
- -- // Services
- local Players = game:GetService("Players")
- 
- -- // Vars
- local LocalPlayer = Players.LocalPlayer
- local accomidationfactor = 0.12567724521
- 
- -- // Silent Aim Module
- local SilentAim = loadstring(game:HttpGet("https://pastebin.com/raw/2f0mGbMP"))()
- SilentAim.TeamCheck = false
- -- // Metatable vars
- local mt = getrawmetatable(game)
- local backupindex = mt.__index
- setreadonly(mt, false)
- 
- -- // Check if player is down
- SilentAim.checkSilentAim = function()
-     local checkA = (SilentAim.SilentAimEnabled == true and SilentAim.Selected ~= LocalPlayer)
-     local playerCharacter = SilentAim.Selected.Character
-     local daHood = (playerCharacter.BodyEffects["K.O"].Value == false or playerCharacter:FindFirstChild("GRABBING_CONSTRAINT") ~= nil)
- 
-     return (checkA and daHood)
- end
- 
- -- // Hook
- mt.__index = newcclosure(function(t, k)
-     if (t:IsA("Mouse") and (k == "Hit")) then
-         print(t, k)
-         local CPlayer = SilentAim.Selected
-         if (SilentAim.checkSilentAim()) then
-             if (CPlayer.Character:FindFirstChild("HumanoidRootPart")) then
-                 return {p=(CPlayer.Character.HumanoidRootPart.CFrame.p+(CPlayer.Character.HumanoidRootPart.Velocity*accomidationfactor))}
-             end
-         end
-     end
-     return backupindex(t, k)
- end)
- 
- -- // Revert
- setreadonly(mt, true)
- getgenv().ValiantAimHacks.FOV = 50
- end)
- 
- LockSection:NewButton("Q Silent Box", "Ping Based", function()
+ LockSection:NewButton("Q Silent Box", "Ping Based LowerTorse", function()
  -- Toggle key is Q
  getgenv().Target = true
  -- Configuration
@@ -1182,8 +1211,8 @@ end)
  end)
  
  
- AntiLockSection:NewButton("Anti Lock N", "N to toggle and untoggle (Sky)", function()
-     getgenv().Mode = "Sky" --// Modes: Underground, Sky, Prediction Changer
+ AntiLockSection:NewButton("Anti Lock N", "N to toggle and untoggle (UnderGround)", function()
+     getgenv().Mode = "Underground" --// Modes: Underground, Sky, Prediction Changer
  getgenv().KeyBind = "n" --// Key to press to enable
  getgenv().PredictionAmount = "2" --// Number to change prediction to
   
@@ -1304,7 +1333,7 @@ end)
  loadstring(game:HttpGet('https://raw.githubusercontent.com/CorruptOblivion/DaHood/main/dahoodarrestfarm.lua'))()
  end)
  
- dhscriptsSection:NewButton("Esp v1", "Esp v1", function()
+ dhscriptsSection:NewButton("Esp 200 feet away", "Esp highlight", function()
  local Players = game:GetService("Players"):GetChildren()
  local RunService = game:GetService("RunService")
  local highlight = Instance.new("Highlight")
@@ -1350,7 +1379,7 @@ end)
  end)
 end)
 
- dhscriptsSection:NewButton("Esp v2", "Esp", function()
+ dhscriptsSection:NewButton("Esp everyone", "Esp", function()
  --[Main Variables]
  
  local plrs = game["Players"]
@@ -3343,3 +3372,4 @@ end)
  -- Credits
  local Credits = Window:NewTab("Credits")
  local CreditsSection = Credits:NewSection("Script created by spidermanw#5854")
+ 
