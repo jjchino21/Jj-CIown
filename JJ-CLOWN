@@ -101,7 +101,7 @@ PlayerSection:NewButton("Reset WS/JP", "Reset Scales", function()
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
 end)
 
-PlayerSection:NewButton(" P Invisible script", "P Toggle untoggle", function()
+PlayerSection:NewButton("P invisible script", "no", function()
 --[[Invisibility Toggle
 
 You can find the orginal concept here: https://v3rmillion.net/showthread.php?tid=544634
@@ -262,7 +262,8 @@ Sound.SoundId = "rbxassetid://232127604"
 Sound:Play()
 game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "Invisible Toggle Loaded",["Text"] = "Press "..Keybind.." to become change visibility.",["Duration"] = 20,["Button1"] = "Okay."})
 end)
-
+end)
+ 
 local PlayerSection = Player:NewSection("Customize Avatar")
 
 PlayerSection:NewButton("Remove Headless script", "No Headless", function()
