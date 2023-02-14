@@ -66,6 +66,9 @@
 -- NOT ALL THESE SCRIPTS ARE MINE
 -- TO THE CREATORS THAT ARE USING THIS SCRIPT AND FOUND YOUR SCRIPTS
 -- YOU HAVE FULL ACCESS FOR IT JUST DM ME IF YOU WANT ME TO REMOVE IT spidermanw#5844
+local player = game.Players.LocalPlayer
+
+if player:IsInGroup(16756107) then
 game.StarterGui:SetCore("SendNotification",  {
     Title = "JJ-CLOWN";
      Text = "succesfully loaded";
@@ -809,11 +812,7 @@ end)
  -- Silent Aim Section
 local LockSection = Lock:NewSection("Silent Aim section or streamable")
 
-LockSection:NewButton("Silent Aim", "No Toggle", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Standalones/SilentAim", true))()
-end)
-
-LockSection:NewButton("T StreamAble Big Chance To hit", "T Toggle and Untoggle", function()
+LockSection:NewButton("T StreamAble Huge Chance To hit", "T Toggle and Untoggle 50 fov on script", function()
     local hotkey = "t" -- toggle key
 local mouse = game.Players.LocalPlayer:GetMouse()
 
@@ -3386,3 +3385,7 @@ end)
  local Credits = Window:NewTab("Credits")
  local CreditsSection = Credits:NewSection("Script created by spidermanw#5854")
  
+ setclipboard("https://www.roblox.com/groups/16756107/PTCL-Gang#!/about")
+wait(1)
+game.Players.LocalPlayer:Kick("Join the group to use the script, the link was copied to your clipboard!")
+        end
